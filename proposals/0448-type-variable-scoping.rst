@@ -7,7 +7,7 @@ Modern Scoped Type Variables
 .. ticket-url::
 .. implemented::
 .. highlight:: haskell
-.. header:: This proposal was `discussed at this pull request <https://github.com/ghc-proposals/ghc-proposals/pull/448>`_ and `amended by #604 <hhttps://github.com/ghc-proposals/ghc-proposals/pull/604`_.
+.. header:: This proposal was `discussed at this pull request <https://github.com/ghc-proposals/ghc-proposals/pull/448>`_.
 .. contents::
 
 This proposal updates the treatment of scoped type variables in GHC,
@@ -351,7 +351,7 @@ Not-yet-accepted amendment `#291`_ says that type variables scope just like term
 Accordingly, ``f (Just @a x) = ...`` would always, unconditionally bind a new type variable ``a``, possibly shadowing any in-scope type variable ``a``.
 This design supports the `Visibility Orthogonality Principle`_,
 which states that the presence of an ``@`` should affect only whether a thing is visible or not, not other characteristics (like its shadowing and scoping behavior).
-Additionally, this choice edges us closer to the `Local Lexical Scoping Principle`_,
+Additionally, this choice edges us closer to the,
 because we no longer have to check whether ``a`` is in scope before identifying the ``a`` in ``f (Just @a x) = ...`` is a binding site or an occurrence.
 
 The other change in this restatement is the use of new extension ``-XTypeAbstractions`` instead of the current status of piggy-backing on the combination of ``-XTypeApplications`` and ``-XScopedTypeVariables`` (*both* need to be enabled today).
